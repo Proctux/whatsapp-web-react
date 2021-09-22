@@ -1,0 +1,33 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+}
+
+@media (max-width: 1080px) {
+  html {
+    font-size: 93.75%;
+  }
+}
+
+@media (max-width: 780px) {
+  html {
+    font-size: 87.5%;
+  }
+}
+
+body {
+  background-color: #dadbd4;
+}
+
+body,
+input,
+select,
+textarea,
+button {
+  font: 400 1rem 'Roboto', sans-serif;
+}
