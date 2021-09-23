@@ -9,6 +9,11 @@ const htmlPlugin = new HtmlWebPackPlugin({
 module.exports = {
   mode: 'development',
   resolve: {
+    alias: {
+      components: path.resolve(__dirname, 'src/components/'),
+      views: path.resolve(__dirname, "src/views/"),
+      assets: path.resolve(__dirname, "src/assets"),
+    },
     extensions: ['', '.js', '.jsx']
   },
   devServer: {
@@ -17,6 +22,7 @@ module.exports = {
     },
     compress: true,
     port: 3000,
+    historyApiFallback: true,
   },
     module: {
       rules: [
@@ -29,7 +35,32 @@ module.exports = {
         },
         {
           test: /\.css$/,
-          use: ["style-loader", "css-loader"]
+          use: [
+            "style-loader",
+            {
+              loader: "css-loader",
+              options: {
+                modules: {
+                  localIdentName: "[name]__[hash:base64:5]",
+                },
+                sourceMap: true,
+              }
+            },
+            {
+              loader: "sass-loader",
+            },
+            {
+              loader: "postcss-loader",
+            },
+          ]
+        },
+        {
+          test: /\.(png|jpe?g|gif)$/i,
+          use: [
+            {
+              loader: 'file-loader',
+            }
+          ]
         }
       ]
     },
