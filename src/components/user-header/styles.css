@@ -1,0 +1,9 @@
+.user-header-container {
+  width: 41.8rem;
+
+  .users-avatar {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+  }
+}
