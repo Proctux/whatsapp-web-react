@@ -1,0 +1,43 @@
+.button {
+  border-radius: 0.8rem;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  cursor: pointer;
+
+  .icon {
+    fill: var(--gray-100);
+  }
+}
+
+/* BUTTON SIZES THEME */
+
+.small {
+  width: 3.2rem;
+  height: 3.2rem;
+
+  .icon {
+    width: 1.6rem;
+    height: 1.6rem;
+  }
+}
+
+.medium {
+  width: 4rem;
+  height: 4rem;
+
+  .icon {
+    width: 2.4rem;
+    height: 2.4rem;
+  }
+}
+
+.large {
+  width: 4.8rem;
+  height: 4.8rem;
+
+  .icon {
+    width: 3.2rem;
+    height: 3.2rem;
+  }
+}
