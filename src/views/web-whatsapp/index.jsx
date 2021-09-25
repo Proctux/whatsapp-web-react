@@ -1,8 +1,7 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from 'react';
 
-import styles from './styles.css'
-import WhatsappContainer from '../../components/whatsapp-container'
+import styles from './styles.css';
+import WhatsappContainer from 'components/whatsapp-container';
 
 const WebWhatsapp = () => {
   return (
@@ -11,7 +10,7 @@ const WebWhatsapp = () => {
       <div className={styles['cream-background']}/>
       <WhatsappContainer className={styles['whatsapp-chat']}/>
     </section>
-  )
-}
+  );
+};
 
-export default WebWhatsapp
+export default WebWhatsapp;

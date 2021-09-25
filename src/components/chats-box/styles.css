@@ -1,0 +1,13 @@
+.chats-box-container {
+  background-color: white;
+  overflow-y: auto;
+  flex-grow: 1;
+
+  .archive-button {
+    padding-left: 3rem;
+  }
+
+  .icon {
+    fill: var(--green-50);
+  }
+}

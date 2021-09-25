@@ -1,1 +1,11 @@
+.sidebar {
+  height: 100%;
+  display: flex;
+  max-width: 43rem;
+  flex-direction: column;
 
+  .search-chat {
+    padding: 0.6rem 1rem;
+    background-color: var(--cream-50);
+  }
+}

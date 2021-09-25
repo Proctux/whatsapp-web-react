@@ -13,6 +13,7 @@ module.exports = {
       components: path.resolve(__dirname, 'src/components/'),
       views: path.resolve(__dirname, "src/views/"),
       assets: path.resolve(__dirname, "src/assets"),
+      utils: path.resolve(__dirname, "src/utils"),
     },
     extensions: ['', '.js', '.jsx']
   },
