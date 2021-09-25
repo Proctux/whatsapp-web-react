@@ -5,8 +5,10 @@
 }
 
 :root {
+  --cream-50: #ededed;
   --cream-100: #dadbd4;
   --green-100: #289688;
+  --gray-100: #51585c;
 }
 
 html {
