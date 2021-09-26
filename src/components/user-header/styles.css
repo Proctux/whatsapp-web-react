@@ -5,6 +5,7 @@
   align-items: center;
   background-color: var(--cream-50);
   padding: 1rem 1.6rem;
+  border-right: 0.1rem solid var(--gray-8);
 
   .users-avatar {
     width: 4rem;

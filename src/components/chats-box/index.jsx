@@ -127,7 +127,7 @@ const MOCK_CHATS = {
       lastSeen: 'Sat Sep 25 2021 14:56:28 GMT-0300 (Brasilia Standard Time)',
       lastMessage: 'Mon Sep 13 2021 14:56:28 GMT-0300 (Brasilia Standard Time)',
       isFixed: true,
-      unReadMessage: 0,
+      unReadMessage: 13,
     },
   ],
   archivedChats: [

@@ -1,11 +1,73 @@
-.sidebar {
-  height: 100%;
-  display: flex;
-  max-width: 43rem;
-  flex-direction: column;
+.whatsapp-container {
+  height: calc(100% - 3.2rem);
 
-  .search-chat {
-    padding: 0.6rem 1rem;
-    background-color: var(--cream-50);
+  @media(max-width: 1450px) {
+    height: 100vh;
+  }
+
+  .sidebar {
+    height: 100%;
+    display: flex;
+    width: 43rem;
+    flex-direction: column;
+
+    .search-chat {
+      padding: 0.6rem 1rem;
+      background-color: var(--cream-50);
+    }
+  }
+
+  .chat-container {
+    width: 100%;
+    max-width: 100rem;
+    height: 100%;
+
+    .initial-content-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      background-color: var(--gray-4);
+      border-bottom: 0.6rem solid var(--light-green-100);
+
+      .whatsapp-image {
+        height: 35rem;
+        width: 35rem;
+      }
+
+      .initial-content-title {
+        font-size: 3.2rem;
+        margin: 3.8rem 0 3.2rem;
+        font-weight: 500;
+        color: var(--gray-100);
+      }
+
+      .text {
+        font-size: 1.4rem;
+        color: rgba(0, 0, 0, 0.45);
+        line-height: 2rem;
+      }
+
+      .initial-content-footer {
+        margin-top: 3.4rem;
+        border-top: 0.1rem solid var(--gray-50);
+        padding: 3.4rem 0;
+        display: flex;
+        max-width: 46rem;
+        text-align: center;
+
+        .laptop-icon {
+          fill: rgba(0, 0, 0, 0.45);
+          width: 2.1rem;
+          height: 2.1rem;
+        }
+
+        .download-link {
+          color: var(--green-80);
+        }
+      }
+    }
   }
 }
