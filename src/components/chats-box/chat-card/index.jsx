@@ -1,13 +1,21 @@
-import React, {useMemo} from 'react';
+import React, {useCallback, useContext, useMemo} from 'react';
 import {format, isToday} from 'date-fns';
 
 import {userPropType} from 'utils/proptypes';
+import Button from 'components/button';
+import {UserContext} from 'components/whatsapp-container';
 
 import styles from './styles.css';
 
 const MOCK_LAST_MESSAGE = 'Bom dia!';
 
 const ChatCard = ({user}) => {
+  const {setSelectedUser} = useContext(UserContext);
+
+  const handleSelectedUser = useCallback(() => {
+    setSelectedUser(user);
+  }, [setSelectedUser, user]);
+
   const renderLastSeenText = useMemo(() => {
     return isToday(new Date(user.lastMessage)) ?
       format(new Date(user.lastMessage), 'p') :
@@ -16,6 +24,10 @@ const ChatCard = ({user}) => {
 
   return (
     <article className={styles['chat-card-container']}>
+      <Button
+        className={styles['button-wrapper']}
+        onClick={handleSelectedUser}
+      />
       <img
         className={styles['user-avatar']}
         src={user.avatar}

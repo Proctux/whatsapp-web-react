@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {createContext, useMemo, useState} from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
 
@@ -7,33 +7,46 @@ import ChatsBox from 'components/chats-box';
 import SearchIcon from 'assets/icons/search-icon.svg';
 import LaptopIcon from 'assets/icons/laptop-icon.svg';
 import Input from 'components/input';
+import Chat from 'components/chat';
 import WhatsappConnectImage from 'assets/images/whatsapp-connect.jpeg';
 
 import styles from './styles.css';
 import {Link} from 'react-router-dom';
 
+const INITIAL_CONTEXT = {
+  selectedUser: {},
+  setSelectedUser: () => {},
+};
+
+export const UserContext = createContext(INITIAL_CONTEXT);
+
 const WhatsappContainer = ({className}) => {
-  const [hasChatSelected] = useState(false);
+  const [selectedUser, setSelectedUser] = useState({});
+  const value = useMemo(() => ({
+    selectedUser,
+    setSelectedUser,
+  }), [selectedUser]);
 
   return (
-    <div className={classnames(styles['whatsapp-container'], className)}>
-      <div className={styles.sidebar}>
-        <UserHeader />
-        <div className={styles['search-chat']}>
-          <Input
-            id="search-input"
-            label="Pesquisar conversas"
-            hiddenLabel
-            startAdornment={SearchIcon}
-            placeholder="Pesquisar ou começar uma nova conversa"
-          />
+    <UserContext.Provider value={value} >
+      <div className={classnames(styles['whatsapp-container'], className)}>
+        <div className={styles.sidebar}>
+          <UserHeader />
+          <div className={styles['search-chat']}>
+            <Input
+              id="search-input"
+              label="Pesquisar conversas"
+              hiddenLabel
+              startAdornment={SearchIcon}
+              placeholder="Pesquisar ou começar uma nova conversa"
+            />
+          </div>
+          <ChatsBox />
         </div>
-        <ChatsBox />
-      </div>
-      <div className={styles['chat-container']}>
-        {hasChatSelected ? (
-          <></>
-        ) : (
+        <div className={styles['chat-container']}>
+          {Object.keys(selectedUser).length > 0 ? (
+            <Chat />
+          ) : (
           <section className={styles['initial-content-container']}>
             <img
               className={styles['whatsapp-image']}
@@ -52,11 +65,15 @@ const WhatsappContainer = ({className}) => {
               Para reduzir o uso de dados, conecte seu celular a uma rede Wi-Fi.
             </p>
             <div className={styles['initial-content-footer']}>
-              <svg viewBox={LaptopIcon.viewBox} className={styles['laptop-icon']}>
+              <svg
+                viewBox={LaptopIcon.viewBox}
+                className={styles['laptop-icon']}
+              >
                 <use xlinkHref={`#${LaptopIcon.id}`} />
               </svg>
               <p className={styles.text}>
-                Faça chamadas a partir de um computador com o WhatsApp para Mac.{' '}
+                Faça chamadas a partir de um computador com o
+                WhatsApp para Mac.{' '}
                 <Link
                   to="/"
                   className={classnames(styles.text, styles['download-link'])}
@@ -67,8 +84,9 @@ const WhatsappContainer = ({className}) => {
             </div>
           </section>
         )}
+        </div>
       </div>
-    </div>
+    </UserContext.Provider>
   );
 };
 
