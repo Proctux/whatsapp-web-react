@@ -1,0 +1,11 @@
+.chat-type-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem 1rem;
+  background-color: var(--cream-50);
+
+  .icon {
+    fill: var(--gray-100);
+  }
+}
