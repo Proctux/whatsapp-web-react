@@ -1,21 +1,21 @@
-var path = require('path')
+const path = require('path');
 
-const HtmlWebPackPlugin = require("html-webpack-plugin")
+const HtmlWebPackPlugin = require('html-webpack-plugin');
 const htmlPlugin = new HtmlWebPackPlugin({
-  template: "./public/index.html",
-  filename: "./index.html"
-})
+  template: './public/index.html',
+  filename: './index.html',
+});
 
 module.exports = {
   mode: 'development',
   resolve: {
     alias: {
       components: path.resolve(__dirname, 'src/components/'),
-      views: path.resolve(__dirname, "src/views/"),
-      assets: path.resolve(__dirname, "src/assets"),
-      utils: path.resolve(__dirname, "src/utils"),
+      views: path.resolve(__dirname, 'src/views/'),
+      assets: path.resolve(__dirname, 'src/assets'),
+      utils: path.resolve(__dirname, 'src/utils'),
     },
-    extensions: ['', '.js', '.jsx']
+    extensions: ['', '.js', '.jsx'],
   },
   devServer: {
     static: {
@@ -25,56 +25,56 @@ module.exports = {
     port: 3000,
     historyApiFallback: true,
   },
-    module: {
-      rules: [
-        {
+  module: {
+    rules: [
+      {
         test: /\.jsx?$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader",
-          }
+          loader: 'babel-loader',
         },
-        {
-          test: /\.css$/,
-          use: [
-            "style-loader",
-            {
-              loader: "css-loader",
-              options: {
-                modules: {
-                  localIdentName: "[name]__[hash:base64:5]",
-                },
-                sourceMap: true,
-              }
+      },
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              modules: {
+                localIdentName: '[name]__[hash:base64:5]',
+              },
+              sourceMap: true,
             },
-            {
-              loader: "sass-loader",
+          },
+          {
+            loader: 'sass-loader',
+          },
+          {
+            loader: 'postcss-loader',
+          },
+        ],
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+          },
+        ],
+      },
+      {
+        test: /\.svg$/,
+        use: [
+          {
+            loader: 'svg-sprite-loader',
+            options: {
+              symbolId: '[name]_[hash]',
             },
-            {
-              loader: "postcss-loader",
-            },
-          ]
-        },
-        {
-          test: /\.(png|jpe?g|gif)$/i,
-          use: [
-            {
-              loader: 'file-loader',
-            }
-          ]
-        },
-        {
-          test: /\.svg$/,
-          use: [
-            {
-              loader: 'svg-sprite-loader',
-              options: {
-                symbolId: "[name]_[hash]"
-              }
-            }
-          ]
-        }
-      ]
-    },
-    plugins: [htmlPlugin]
-}
+          },
+        ],
+      },
+    ],
+  },
+  plugins: [htmlPlugin],
+};

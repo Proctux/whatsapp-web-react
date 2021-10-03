@@ -1,0 +1,36 @@
+.chat-header-container {
+  padding: 1rem 1.6rem;
+  display: grid;
+  grid-template-columns: 5rem 1fr auto;
+  column-gap: 1.5rem;
+  background-color: var(--cream-50);
+
+  .user-avatar {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .user-information {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .user-name {
+      font-size: 1.6rem;
+      font-weight: 500;
+    }
+
+    .last-seen {
+      font-size: 1.4rem;
+      color: var(--gray-100);
+    }
+  }
+
+  .chat-option-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

@@ -5,10 +5,17 @@
   grid-template-columns: 5rem 1fr;
   grid-template-areas: 'avatar content';
   column-gap: 1.5rem;
+  position: relative;
 
   &:hover {
     background-color: var(--gray-16);
     cursor: pointer;
+  }
+
+  .button-wrapper {
+    position: absolute;
+    inset: 0;
+    height: 100%;
   }
 
 

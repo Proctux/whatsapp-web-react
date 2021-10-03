@@ -1,0 +1,18 @@
+.chat-conversation-container {
+  position: relative;
+
+  .background-image {
+    height: 100%;
+    background-repeat: repeat;
+    background-size: 500px 500px;
+
+    .balloon-wrapper {
+      overflow-y: auto;
+      padding: 0 8% 2.4rem;
+      display: flex;
+      height: 100%;
+
+      align-items: flex-end;
+    }
+  }
+}
