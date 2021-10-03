@@ -11,14 +11,15 @@ import styles from './styles.css';
 const ChatFooter = () => {
   return (
     <footer className={styles['chat-type-container']}>
-      <IconButton icon={EmojiIcon} className={styles.icon} />
-      <IconButton icon={AttachIcon} className={styles.icon} />
+      <IconButton ariaLabel="Add emoji icon" icon={EmojiIcon} className={styles.icon} />
+      <IconButton ariaLabel="Attach files" icon={AttachIcon} className={styles.icon} />
       <Input
-        label="input-message"
+        id="input-message"
+        label="Message box"
         hiddenLabel
         placeholder="Digite uma mensagem"
       />
-      <IconButton icon={MicIcon} className={styles.icon} />
+      <IconButton ariaLabel="Send an audio" icon={MicIcon} className={styles.icon} />
     </footer>
   );
 };
